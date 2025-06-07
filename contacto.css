@@ -1,0 +1,281 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  background: #0f172a;
+  color: #1c2b45;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo animado mejorado */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #0ea5e9, #38bdf8);
+  background-size: 400% 400%;
+  animation: gradient 18s ease infinite;
+  z-index: 0;
+  filter: blur(12px);
+  opacity: 0.65;
+}
+
+/* Transición suave */
+.page-transition {
+  opacity: 1;
+  transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+}
+.page-transition.fade-out {
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.97);
+}
+
+/* Contenedor glass */
+.contact-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2.8rem;
+  border-radius: 24px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  max-width: 540px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* Formulario */
+.contact-form h2 {
+  font-size: 2.2rem;
+  color: #1d4ed8;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+.contact-form p {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #444;
+}
+.contact-form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #1e293b;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  background-color: #f1f5f9;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+/* Botón enviar animado */
+.contact-form button {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1rem;
+  background: linear-gradient(to right, #3b82f6, #0ea5e9);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Botón regresar */
+.btn-back {
+  display: inline-block;
+  margin-top: 1.4rem;
+  text-align: center;
+  width: 100%;
+  font-size: 0.95rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.btn-back:hover {
+  color: #1d4ed8;
+}
+
+/* Fondo animado llamativo */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, #0ea5e9, transparent 40%),
+              radial-gradient(circle at 70% 60%, #9333ea, transparent 40%),
+              radial-gradient(circle at 50% 50%, #f43f5e, transparent 50%);
+  animation: neonFlow 18s ease-in-out infinite alternate;
+  background-blend-mode: screen;
+  opacity: 0.7;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Animación psicodélica */
+@keyframes neonFlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(-5%, -5%);
+  }
+  100% {
+    transform: scale(1) translate(5%, 5%);
+  }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-wrapper {
+    padding: 2rem;
+    border-radius: 18px;
+    margin-top: 3rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-form p,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button,
+  .btn-back {
+    font-size: 0.95rem;
+  }
+}
+
+/* -----------------------
+   Popup de éxito moderno
+------------------------ */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  color: #087f5b;
+  padding: 2rem 3rem;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.4s ease;
+  border: 2px solid rgba(0, 200, 100, 0.3);
+}
+
+.success-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: all;
+}
+
+.success-popup i {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  color: #00c48c;
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+/* Botón regreso con animación de avión */
+.btn-back {
+  display: inline-block;
+  margin-top: 1.4rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.95rem;
+  background: #1e3a8a;
+  color: #fff;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.4s ease, background 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-back i {
+  margin-right: 8px;
+  transition: transform 0.4s ease;
+}
+.btn-back:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+.btn-back.fly-away {
+  animation: planeFly 0.8s forwards ease-in-out;
+}
+.btn-back.fly-away i {
+  transform: rotate(45deg) translate(20px, -20px);
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(50px, -50px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(200px, -200px) scale(0.3);
+    opacity: 0;
+  }
+}

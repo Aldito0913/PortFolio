@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sketch</title>
+
+  <!-- Fuentes y estilos -->
+  <link rel="stylesheet" href="sketch.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+</head>
+<body class="page-transition">
+
+  <!-- Overlay tipo textura papel -->
+  <div class="paper-texture"></div>
+
+  <!-- Encabezado tipo boceto -->
+  <header class="hero-header">
+    <div class="container">
+      <div class="timecode">SK ▶ 00:02:09</div>
+      <h1 class="hero-title sketch-draw">✏️ <span class="tachado">Sketch</span></h1>
+      <p class="hero-description">
+        Ilustraciones con estilo de boceto: líneas sueltas, trazos visibles y espontaneidad artística. Perfecto para ideas frescas o arte conceptual.
+      </p>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <section class="info-section container">
+      <h2 class="section-title sketch-draw">📖 ¿Qué incluye este estilo?</h2>
+      <p class="section-description">
+        El estilo Sketch incluye ilustraciones con líneas visibles, trazos de lápiz o tinta digital y un toque informal. Ideal para representar personajes en desarrollo, escenas ligeras o arte espontáneo con alma.
+      </p>
+
+      <!-- Galería estilo Sketch -->
+      <div class="gallery">
+        <div class="gallery-img-wrapper">
+          <img src="sketch1.jpeg" alt="Ejemplo 1 Sketch" class="gallery-img" />
+          <p class="caption">"/// Expresión cruda y trazo sin filtro, directo del lápiz al alma."</p>
+        </div>/
+        <div class="gallery-img-wrapper">
+          <img src="sketch2.jpeg" alt="Ejemplo 2 Sketch" class="gallery-img" />
+          <p class="caption">"/// Un boceto que susurra más de lo que grita. Belleza en lo inacabado."</p>
+        </div>
+        <div class="gallery-img-wrapper">
+          <img src="sketch3.jpeg" alt="Ejemplo 3 Sketch" class="gallery-img" />
+          <p class="caption">"/// La idea nace en un trazo. Todo lo demás es viaje."</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Créditos -->
+  <footer class="ending-credits">
+    <p>🎨 Ilustraciones por <strong>@cinna_maru</strong></p>
+    <p>✏️ Gracias por explorar este estilo lleno de alma</p>
+  </footer>
+
+  <!-- Botón regresar -->
+  <a href="galeria.html" class="back-button" id="volverGaleria">⬅ Regresar</a>
+
+  <!-- Cursor personalizado (requiere pencil-cursor.png en carpeta) -->
+  <style>
+    body {
+      cursor: url('pencil-cursor.png'), auto;
+    }
+
+    .tachado {
+      text-decoration: line-through wavy #999;
+    }
+
+    .sketch-draw {
+      animation: pencilDraw 1.5s ease-out;
+    }
+
+    @keyframes pencilDraw {
+      from {
+        opacity: 0;
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+      to {
+        opacity: 1;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  </style>
+
+  <!-- Transición al volver -->
+  <script>
+    document.getElementById("volverGaleria").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "galeria.html";
+      }, 600);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+/* ---------- Fondo tipo papel para sketch ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #faf8f3 url('paper-texture.jpg') repeat;
+  background-size: cover;
+  color: #333;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+  cursor: url('pencil-cursor.png'), auto;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+.paper-texture {
+  position: fixed;
+  inset: 0;
+  background: url('grain-light.png');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---------- Encabezado tipo libreta ---------- */
+.hero-header {
+  background: linear-gradient(to right, #e0dcd1, #f2eee4);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 6px dashed #ccc;
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 -8px 0 #d8cfc1;
+}
+
+.hero-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+  text-decoration: line-through wavy #999; /* tachadura decorativa */
+}
+
+.hero-description {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+  position: relative;
+  font-style: italic;
+  font-family: 'Courier New', monospace;
+}
+
+.hero-description::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+.timecode {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 4px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+/* ---------- Contenido principal ---------- */
+.main-content {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.info-section {
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #5c443a;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px dotted #aaa;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+.section-description {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border-left: 6px solid #999;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.08);
+  position: relative;
+  font-family: 'Courier New', monospace;
+}
+
+/* ---------- Galería Sketch con animación de trazo ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.gallery-img-wrapper {
+  width: 300px;
+  padding: 1rem;
+  background: #fefefe;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 #d0ccc4;
+  transition: transform 0.3s ease;
+  position: relative;
+  animation: sketchAppear 1.2s ease-in-out;
+}
+
+@keyframes sketchAppear {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.gallery-img-wrapper:hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+.gallery-img {
+  width: 100%;
+  border-radius: 8px;
+  filter: contrast(1.05) brightness(1.1);
+}
+
+/* ---------- Pie de imagen estilo boceto ---------- */
+.caption {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.95rem;
+  color: #444;
+  background: #fff;
+  margin-top: 10px;
+  padding: 0.6rem 1rem;
+  border: 2px dotted #bbb;
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 #ccc;
+  position: relative;
+}
+
+.caption::before {
+  content: "/// ";
+  color: #999;
+  font-style: normal;
+  font-size: 1.1rem;
+  position: absolute;
+  left: -15px;
+  top: 4px;
+}
+
+/* ---------- Créditos ---------- */
+.ending-credits {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px dashed #ccc;
+  margin-top: 4rem;
+  background: #f9f8f5;
+}
+
+/* ---------- Botón de regreso tipo bloc de notas ---------- */
+.back-button {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #444;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 999px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 4px 4px 0 #aaa;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  font-size: 0.95rem;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 0 #888;
+}
+
+/* ---------- Fade In ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* =========================
+   RESPONSIVE SKETCH
+========================= */
+
+@media (max-width: 1024px) {
+  .hero-header {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .main-content {
+    padding: 0 1.5rem;
+  }
+
+  .gallery-img-wrapper {
+    width: 90%;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+  }
+
+  .caption {
+    font-size: 0.85rem;
+  }
+
+  .back-button {
+    bottom: 20px;
+    left: 20px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .timecode {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .section-description {
+    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+  }
+
+  .gallery-img-wrapper {
+    width: 100%;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  .timecode {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
+}

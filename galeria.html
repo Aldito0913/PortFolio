@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Ilustraciones</title>
+
+  <link rel="stylesheet" href="galeria.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(-45deg, #ffe0f0, #e0f7ff, #ffece0, #e0ffe6);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    @keyframes gradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .main-header {
+      text-align: center;
+      padding: 3rem 2rem 1rem;
+      background: linear-gradient(to right, #ff4b7d, #ffa07a);
+      color: white;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .main-header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .main-header .subtext {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pricing-showcase {
+      max-width: 1000px;
+      margin: 4rem auto;
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .pricing-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #ff4b7d;
+    }
+
+    .pricing-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #444;
+    }
+
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .pricing-button {
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 220px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .pricing-button img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-button h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .price-tag {
+      margin-top: 0.5rem;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* Estilos únicos por botón */
+    .sketch-style {
+      font-family: 'Permanent Marker', cursive;
+      background: #fdf6e3;
+      border: 2px dashed #aaa;
+      box-shadow: 4px 4px 0 #999;
+    }
+
+    .flat-style {
+      background: linear-gradient(145deg, #fff9f0, #fefefe);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .render-style {
+      font-family: 'Rubik Glitch', cursive;
+      background: linear-gradient(to right, #ff4081, #9575cd);
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .anime-style {
+      background: linear-gradient(to right, #fce4ec, #e1f5fe);
+      border: 2px solid #ce93d8;
+      box-shadow: 0 6px 20px rgba(255, 64, 129, 0.2);
+    }
+
+    .fake-style {
+      background: repeating-linear-gradient(45deg, #000, #000 2px, #111 2px, #111 4px);
+      color: #f5f5f5;
+      border: 2px solid #444;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      font-family: 'Courier New', monospace;
+    }
+
+    .price-tag.sketch-style { background: #444; }
+    .price-tag.flat-style { background: #ffb74d; }
+    .price-tag.render-style { background: #7c4dff; }
+    .price-tag.anime-style { background: #ec407a; }
+    .price-tag.fake-style { background: #222; }
+
+    .pricing-button:hover {
+      transform: scale(1.05);
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background: linear-gradient(to right, #ff4b7d, #ffa07a);
+      color: white;
+      padding: 12px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="page-transition">
+
+  <main>
+    <header class="main-header">
+      <h1>Galería de Comisiones</h1>
+      <p class="subtext">Explora las ilustraciones personalizadas realizadas con detalle y dedicación</p>
+    </header>
+
+    <section class="pricing-showcase">
+      <h2 class="pricing-title">🎨 Tipos de Comisiones</h2>
+      <p class="pricing-subtitle">¡Elige el estilo que más te guste!</p>
+
+      <div class="pricing-cards">
+        <a href="sketch.html" class="pricing-button sketch-style">
+          <img src="Sketch.jpeg" alt="Ejemplo de sketch">
+          <h3>✏️ Sketch</h3>
+          <span class="price-tag sketch-style">$10</span>
+        </a>
+
+        <a href="flat-color.html" class="pricing-button flat-style">
+          <img src="flar2.jpeg" alt="Flat Color">
+          <h3>🎨 Flat Color</h3>
+          <span class="price-tag flat-style">$20</span>
+        </a>
+
+       <a href="full-render.html" class="pricing-button render-style">
+          <img src="fullrender.jpeg" alt="Full Render">
+          <h3>✨ Full Render</h3>
+          <span class="price-tag render-style">$35</span>
+        </a>
+
+        <a href="Anime.html" class="pricing-button anime-style">
+          <img src="anime.png" alt="Estilo Anime">
+          <h3>➕ Estilo Anime</h3>
+          <span class="price-tag anime-style">+$10</span>
+        </a>
+
+        <a href="fake-screen.html" class="pricing-button fake-style">
+          <img src="fakescreen.jpeg" alt="Fake Screen Anime">
+          <h3>📺 Fake Screen Anime</h3>
+          <span class="price-tag fake-style">+$10</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <a href="#" class="back-button" id="backToHome">⟵ Regresar</a>
+
+  <script>
+    // Transición para botón de regresar
+    document.getElementById("backToHome").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 600);
+    });
+
+    // Transición para todos los botones de comisión
+    document.querySelectorAll(".pricing-button").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        const link = btn.getAttribute("href");
+        if (link && link !== "#") {
+          e.preventDefault();
+          document.body.classList.add("fade-out");
+          setTimeout(() => {
+            window.location.href = link;
+          }, 600);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+   

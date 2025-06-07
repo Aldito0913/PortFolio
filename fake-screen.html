@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Screen Anime</title>
+
+  <!-- Fuentes y Estilos -->
+  <link rel="stylesheet" href="fake-screen.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+</head>
+<body class="page-transition">
+
+  <!-- Filtro tipo VHS -->
+  <div class="vhs-overlay"></div>
+
+  <!-- Encabezado con glitch -->
+  <header class="hero-header slide-in">
+    <div class="container">
+      <div class="timecode">SP ▶ 00:03:21</div>
+      <h1 class="hero-title glitch-text">📺 Fake Screen Anime</h1>
+      <p class="hero-description blinking">
+        Transforma tu retrato o escena en un fotograma con estética de anime retro,
+        como si fuera parte de una serie japonesa clásica.
+      </p>
+    </div>
+  </header>
+
+  <!-- Sección principal -->
+  <main class="main-content fade-in">
+    <section class="info-section container">
+      <h2 class="section-title fade-in-delay">✨ ¿Qué incluye este estilo?</h2>
+      <p class="section-description fade-in-delay">
+        Este tipo de ilustración recrea la textura, composición y paleta de color de un anime clásico.
+        Es perfecto para escenas dramáticas, nostálgicas o divertidas con estilo visual auténtico.
+      </p>
+
+      <!-- Galería estilo VHS con subtítulos -->
+      <div class="gallery">
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="fake1.jpeg" alt="Ejemplo 1" class="gallery-img" />
+          <p class="caption anime-sub">「*¡PUM fuerte!*」</p>
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="fake2.jpeg" alt="Ejemplo 2" class="gallery-img" />
+          <p class="caption anime-sub">「¡No le hables así a mi hijo!」</p>
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="fake3.jpeg" alt="Ejemplo 3" class="gallery-img" />
+          <p class="caption anime-sub">「...」</p> <!-- No había texto en la imagen 3 -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Créditos finales tipo ending -->
+  <footer class="ending-credits">
+    <p>🎨 Ilustraciones por <strong>@cinna_maru</strong></p>
+    <p>🌸 Sitio creado con amor, nostalgia y CSS retro ✨</p>
+  </footer>
+
+  <!-- Botón de regreso -->
+  <a href="galeria.html" class="back-button" id="volverGaleria">⟵ Regresar</a>
+
+  <!-- Script transición suave -->
+  <script>
+    document.getElementById("volverGaleria").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "galeria.html";
+      }, 600);
+    });
+  </script>
+</body>
+</html>
+ 

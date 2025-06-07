@@ -1,0 +1,323 @@
+/* ---------- Fondo dinámico estilo anime oscuro ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #2a003f, #1a1a1a);
+  background-size: 400% 400%;
+  animation: flow 15s ease infinite;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  color: #eeeeee;
+}
+
+@keyframes flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+/* ---------- Filtro VHS/grain overlay ---------- */
+.vhs-overlay {
+  position: fixed;
+  inset: 0;
+  background: url('static-grain.gif');
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ---------- Cabecera ---------- */
+.hero-header {
+  background: linear-gradient(to right, #6a1b9a, #ff4b5c);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 10px 30px rgba(255, 75, 92, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-family: 'Rubik Glitch', cursive;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  animation: glitch 2s infinite alternate;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #f0dfff;
+}
+
+.blinking {
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* ---------- Glitch Animation ---------- */
+@keyframes glitch {
+  0% {
+    transform: skew(0deg);
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  50% {
+    transform: skew(1deg);
+    text-shadow: -2px 0 magenta, 2px 0 blue;
+  }
+  100% {
+    transform: skew(-1deg);
+    text-shadow: 2px 0 cyan, -2px 0 red;
+  }
+}
+
+/* ---------- Timecode estilo VHS ---------- */
+.timecode {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: rgba(0,0,0,0.4);
+  padding: 4px 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 4px;
+}
+
+/* ---------- Contenido ---------- */
+.main-content {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.info-section {
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #ff4b5c;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1.05rem;
+  color: #cccccc;
+  margin-bottom: 3rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Galería ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gallery-img-wrapper {
+  position: relative;
+  max-width: 340px;
+  width: 100%;
+}
+
+.gallery-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(255, 75, 92, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 35px rgba(255, 75, 92, 0.4);
+}
+
+/* ---------- Subtítulos estilo anime oscuro ---------- */
+.caption {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 4px black;
+  margin-top: 10px;
+  animation: subtitular 1.5s ease;
+}
+
+@keyframes subtitular {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Créditos ---------- */
+.ending-credits {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 75, 125, 0.2);
+  animation: fadeIn 1s ease;
+}
+
+/* ---------- Animación Fade In ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Botón de regreso ---------- */
+.back-button {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: linear-gradient(to right, #ff4b5c, #7e57c2);
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  font-size: 0.95rem;
+}
+
+.back-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(255, 75, 92, 0.5);
+  background: linear-gradient(to right, #ff6f8c, #a080f7);
+}
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1024px) {
+  .hero-header {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .main-content {
+    padding: 0 1.5rem;
+  }
+
+  .gallery-img-wrapper {
+    max-width: 300px;
+  }
+
+  .back-button {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+  }
+
+  .gallery {
+    gap: 1.5rem;
+  }
+
+  .gallery-img-wrapper {
+    max-width: 90%;
+  }
+
+  .caption {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .ending-credits {
+    font-size: 0.85rem;
+    padding: 1.5rem;
+  }
+
+  .timecode {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+  }
+
+  .gallery-img-wrapper {
+    max-width: 100%;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  .timecode {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
+}

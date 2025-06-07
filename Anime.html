@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estilo Anime</title>
+
+  <!-- Fuentes y Estilos -->
+  <link rel="stylesheet" href="Anime.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+</head>
+<body class="page-transition">
+
+  <!-- Efecto de sakura -->
+  <canvas id="sakuraCanvas"></canvas>
+
+  <!-- Filtro VHS / Grano -->
+  <div class="vhs-overlay"></div>
+
+  <!-- Pantalla dividida animada -->
+  <div class="split-transition" id="splitScreen"></div>
+
+  <!-- Encabezado tipo anime -->
+  <div class="episode-title-bar">
+    <p class="episode-label">EPISODIO 01:</p>
+    <p class="episode-title">“Donde todo comienza...”</p>
+  </div>
+
+  <header class="hero-header slide-in">
+    <div class="container">
+      <div class="timecode">▶ LP 00:00:52</div>
+      <h1 class="hero-title glitch-text">🌠 Estilo Anime</h1>
+      <p class="hero-description blinking">
+        Ilustraciones con energía visual y emocional, como si fueran sacadas de una escena épica de tu anime favorito.
+      </p>
+    </div>
+  </header>
+
+  <main class="main-content fade-in">
+    <section class="info-section container">
+      <h2 class="section-title fade-in-delay">🌸 ¿Qué incluye este estilo?</h2>
+      <p class="section-description fade-in-delay">
+        Captura el dinamismo y emoción de las series japonesas con trazos expresivos, colores saturados, efectos brillantes y escenas poderosas.
+      </p>
+
+      <div class="gallery">
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="anime1.png" alt="Ejemplo 1 Anime" class="gallery-img" />
+          <p class="caption anime-sub">「¡No me rendiré jamás!」</p>
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="anime2.png" alt="Ejemplo 2 Anime" class="gallery-img" />
+        <p class="caption anime-sub">「La alquimia requiere un pago. ¡Ese es el primer principio de la equivalencia!」</p>
+
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="anime3.png" alt="Ejemplo 3 Anime" class="gallery-img" />
+<p class="caption anime-sub">「¡No soy ni humano ni demonio... soy yo, Inuyasha!」</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ending-credits">
+    <p>🎨 Ilustraciones por <strong>@cinna_maru</strong></p>
+    <p>🌀 Gracias por acompañarnos hasta el final de este episodio</p>
+  </footer>
+
+  <a href="galeria.html" class="back-button" id="volverGaleria">⟵ Regresar</a>
+
+  <!-- JavaScript de transición + sakura -->
+  <script>
+    // Transición dividida al cargar
+    window.onload = () => {
+      const split = document.getElementById('splitScreen');
+      split.classList.add('split-fade');
+      setTimeout(() => {
+        split.style.display = 'none';
+      }, 1000);
+    };
+
+    // Botón de regreso con transición
+    document.getElementById("volverGaleria").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "galeria.html";
+      }, 600);
+    });
+
+    // Sakura partículas
+    const canvas = document.getElementById("sakuraCanvas");
+    const ctx = canvas.getContext("2d");
+    let petals = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function Petal() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * -canvas.height;
+      this.size = 8 + Math.random() * 10;
+      this.speedY = 1 + Math.random() * 2;
+      this.speedX = Math.random() * 1 - 0.5;
+      this.opacity = 0.5 + Math.random() * 0.5;
+    }
+
+    function createPetals() {
+      for (let i = 0; i < 35; i++) petals.push(new Petal());
+    }
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < petals.length; i++) {
+        const p = petals[i];
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 182, 193, ${p.opacity})`;
+        ctx.ellipse(p.x, p.y, p.size * 0.6, p.size, Math.PI / 4, 0, 2 * Math.PI);
+        ctx.fill();
+        p.y += p.speedY;
+        p.x += p.speedX;
+        if (p.y > canvas.height) {
+          petals[i] = new Petal();
+          petals[i].y = 0;
+        }
+      }
+      requestAnimationFrame(animatePetals);
+    }
+
+    createPetals();
+    animatePetals();
+  </script>
+</body>
+</html>
+ 

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Render</title>
+
+  <!-- Fuentes y Estilos -->
+  <link rel="stylesheet" href="full-render.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <style>
+    /* Brillos animados al pasar el mouse */
+    .gallery-img-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.2) 100%);
+      transform: skewX(-20deg);
+      transition: all 0.8s ease;
+      pointer-events: none;
+    }
+    .gallery-img-wrapper:hover::before {
+      left: 125%;
+    }
+
+    /* Entrada tipo zoom suave */
+    .gallery-img {
+      transform: scale(0.96);
+      animation: zoomIn 1s ease forwards;
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .gallery-img-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="page-transition">
+
+  <!-- Filtro tipo VHS -->
+  <div class="vhs-overlay"></div>
+
+  <!-- Encabezado con glitch -->
+  <header class="hero-header slide-in">
+    <div class="container">
+      <div class="timecode">LP ▶ 00:07:42</div>
+      <h1 class="hero-title glitch-text">✨ Full Render</h1>
+      <p class="hero-description blinking">
+        Ilustraciones con acabado profesional, detalle completo en luces, sombras, expresiones y fondos.
+      </p>
+    </div>
+  </header>
+
+  <!-- Sección principal -->
+  <main class="main-content fade-in">
+    <section class="info-section container">
+      <h2 class="section-title fade-in-delay">🎨 ¿Qué incluye este estilo?</h2>
+      <p class="section-description fade-in-delay">
+        Este estilo es ideal si buscas una ilustración completamente trabajada, con trazos limpios, colores vibrantes y fondos bien definidos. 
+        Cada escena es una obra terminada lista para impresión o presentación digital.
+      </p>
+
+      <!-- Galería de ejemplos renderizados -->
+      <div class="gallery">
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="render1.jpeg" alt="Ejemplo 1 Full Render" class="gallery-img" />
+          <p class="caption anime-sub">「Una figura pensativa entre luces frías y sombras suaves. Su mirada perdida transmite introspección, como si llevara un universo de historias no contadas. Las tonalidades violetas dan una atmósfera melancólica, casi cinematográfica.」</p>
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="render2.jpeg" alt="Ejemplo 2 Full Render" class="gallery-img" />
+          <p class="caption anime-sub">「Personalidad vibrante con actitud misteriosa. Su mirada lateral, junto a las gafas sobre su cabeza, sugiere que está lista para la acción, pero también observa con cuidado. El contraste entre su cabello fucsia y el fondo blanco hace que destaque como un personaje de anime moderno.」</p>
+        </div>
+        <div class="gallery-img-wrapper vhs-frame">
+          <img src="render3.jpeg" alt="Ejemplo 3 Full Render" class="gallery-img" />
+          <p class="caption anime-sub">「Elegancia y emoción contenida. Con una pose sutilmente protectora, esta ilustración transmite introspección y sensibilidad. Los trazos suaves y la expresión contemplativa le dan un aire poético, casi como si estuviera en pausa justo antes de decir algo importante.」</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Créditos finales -->
+  <footer class="ending-credits">
+    <p>🎨 Ilustraciones por <strong>@cinna_maru</strong></p>
+    <p>💫 Gracias por explorar este estilo lleno de detalle y pasión</p>
+  </footer>
+
+  <!-- Botón de regreso -->
+  <a href="galeria.html" class="back-button" id="volverGaleria">⬅ Regresar</a>
+
+  <!-- Transición suave -->
+  <script>
+    document.getElementById("volverGaleria").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "galeria.html";
+      }, 600);
+    });
+  </script>
+  <script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('show');
+  });
+</script>
+
+</body>
+</html>

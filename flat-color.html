@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flat Color</title>
+
+  <!-- Fuentes y Estilos -->
+  <link rel="stylesheet" href="flat-color.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+</head>
+<body class="page-transition">
+
+  <header class="hero-header">
+    <div class="container">
+      <div class="timecode">SC ▶ 00:03:21</div>
+      <h1 class="hero-title">🎨 Flat Color</h1>
+      <p class="hero-description">
+        Ilustraciones con estilo limpio, colores sólidos y contornos marcados. Ideal para representaciones estilizadas, caricaturas o gráficos simples con gran impacto visual.
+      </p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="info-section container">
+      <h2 class="section-title">🧾 ¿Qué incluye este estilo?</h2>
+      <p class="section-description">
+        Este estilo plano resalta con colores vivos y líneas claras. Perfecto para retratos cartoon, stickers o personajes con alto contraste.
+      </p>
+
+      <div class="gallery">
+        <div class="gallery-img-wrapper">
+          <img src="flat1.jpeg" alt="Ejemplo 1 Flat" class="gallery-img" />
+          <p class="caption">"Ilustración expresiva para representar emociones cotidianas de forma divertida."</p>
+        </div>
+        <div class="gallery-img-wrapper">
+          <img src="flar2.jpeg" alt="Ejemplo 2 Flat" class="gallery-img" />
+          <p class="caption">"Estilo cartoon energético con líneas marcadas y actitud explosiva."</p>
+        </div>
+        <div class="gallery-img-wrapper">
+          <img src="flat3.jpeg" alt="Ejemplo 3 Flat" class="gallery-img" />
+          <p class="caption">"Diseño plano con estética de cómic y enfoque en siluetas potentes."</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ending-credits">
+    <p>🎨 Ilustraciones por <strong>@cinna_maru</strong></p>
+    <p>🖼️ Gracias por explorar el estilo Flat Color</p>
+  </footer>
+
+  <a href="galeria.html" class="back-button" id="volverGaleria">⬅ Regresar</a>
+
+  <script>
+    document.getElementById("volverGaleria").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "galeria.html";
+      }, 600);
+    });
+  </script>
+</body>
+</html>
